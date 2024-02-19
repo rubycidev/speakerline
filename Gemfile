@@ -2,8 +2,8 @@ source 'https://rubygems.org'
 
 ruby File.read(".ruby-version").strip
 
-gem 'acts-as-taggable-on', '~> 9.0'
-gem 'rails', '7.0.8'
+gem 'acts-as-taggable-on', '~> 10.0'
+gem 'rails', '7.1.3'
 gem 'pg', '1.5.4'
 gem 'puma'
 gem 'sass-rails'
@@ -17,7 +17,7 @@ gem 'rack-attack'
 gem 'ruby_ci'
 
 group :development, :test do
-  gem 'rspec-rails', '6.0.3'
+  gem 'rspec-rails', '6.1.1'
   gem 'byebug', platform: :mri
   gem 'factory_bot_rails'
   gem 'dotenv-rails'
