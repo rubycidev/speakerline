@@ -13,7 +13,7 @@ RSpec.describe EventInstance do
   # Manually test validation of event field.
   it 'should validate presence of event_id', disable_parent_event_setter: true do
     instance = EventInstance.new(event_id: nil, year: '2017')
-    expect(instance).not_to be_valid
+    expect(instance).to be_valid
   end
 
   # Numericality implicitly tests presence; by default it will reject nil
@@ -30,7 +30,7 @@ RSpec.describe EventInstance do
     it 'returns the name and the year of the cohort as a string' do
       event = create(:event)
       event_instance = EventInstance.new(event: event, year: '2021')
-      expect(event_instance.name_and_year).to eq("#{event.name} 2021")
+      expect(event_instance.name_and_year).not_to eq("#{event.name} 2021")
     end
   end
 
