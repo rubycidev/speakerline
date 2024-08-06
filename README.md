@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/nodunayo/speakerline.svg?branch=master)](https://travis-ci.org/nodunayo/speakerline)
 [![Depfu](https://badges.depfu.com/badges/5515ef52032873777824e0923cd8258f/overview.svg)](https://depfu.com/github/nodunayo/speakerline)
 
-> Showcasing speakers' proposals and timelines in a effort to demystify the CFP process and help new speakers get started
+> Showcasing speakers' proposals and timelines in an effort to demystify the CFP process and help new speakers get started
 
 ## Contents
 
@@ -63,7 +63,7 @@ As Speakerline develops, hopefully it will:
 
 ### Getting started with Ruby and Postgres
 
-First, you'll need to install Ruby 2.6.0. I like to use [chruby](https://github.com/postmodern/chruby) and [ruby-install](https://github.com/postmodern/ruby-install) to manage my Ruby versions.
+First, you'll need to install Ruby 3.1.2. I like to use [chruby](https://github.com/postmodern/chruby) and [ruby-install](https://github.com/postmodern/ruby-install) to manage my Ruby versions.
 
 Another popular alternative is using [rbenv](https://github.com/rbenv/rbenv) and [ruby-build](https://github.com/rbenv/ruby-build).
 
@@ -93,15 +93,13 @@ choco install postgresql
 Once Ruby and Postgres are installed, we need to install the gems used by the app:
 
 ```bash
-gem install bundler
 bundle install
 ```
 
 Once all the gems are installed, we'll need to create the databases and tables used by the app:
 
 ```bash
-bundle exec rake db:create:all
-bundle exec rake db:migrate
+bin/rails db:create db:migrate
 ```
 
 #### Environment variables
@@ -125,7 +123,7 @@ Select 'reCAPTCHA V2' and add 'localhost' to the list of domains.
 To seed the development database with some fake speaker, event, proposal, and submission data, run:
 
 ```bash
-bundle exec rake db:setup
+bin/rails db:setup
 ```
 
 Be aware: this will overwrite any development data you have previously saved.
@@ -135,7 +133,7 @@ Be aware: this will overwrite any development data you have previously saved.
 All we have to do now is start up the Rails server and point our browser to <http://localhost:3000>
 
 ```bash
-bundle exec rails s
+bin/rails s
 ```
 
 ### Running the tests
@@ -146,7 +144,7 @@ RSpec and Cucumber are used for [test-driven](https://en.wikipedia.org/wiki/Test
 All of the tests can be run with:
 
 ```bash
-bundle exec rake
+bin/rails spec
 ```
 
 or to run only the failing (Rspec) examples
@@ -158,7 +156,7 @@ bundle exec rspec --only-failures
 To set up the test environment, run:
 
 ```bash
-bundle exec rake db:test:prepare
+bin/rails db:test:prepare
 ```
 
 This will create the test database and populate its schema.
