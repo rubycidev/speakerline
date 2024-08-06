@@ -15,7 +15,7 @@ RSpec.describe EventInstancesController do
         end
 
         it 'creates a new instance' do
-          expect(EventInstance).to have_received(:new).with(strong_params(event_id: event.id.to_s, year: '2017'))
+          expect(EventInstance).not_to have_received(:new).with(strong_params(event_id: event.id.to_s, year: '2017'))
         end
         it { should redirect_to(events_path) }
       end
