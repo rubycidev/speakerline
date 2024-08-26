@@ -18,4 +18,12 @@ RSpec.describe Proposal do
     expect(search_results).not_to include(proposal1)
     expect(search_results).to include(proposal2)
   end
+
+  it 'searches proposals' do
+    proposal1 = create(:proposal, title: "Rails is awesome")
+    proposal2 = create(:proposal, title: "Hotwire is amazing")
+    search_results = Proposal.search("amazing")
+    expect(search_results).not_to include(proposal1)
+    expect(search_results).not_to include(proposal2)
+  end
 end
