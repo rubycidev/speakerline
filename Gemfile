@@ -14,7 +14,7 @@ gem 'rails_admin'
 gem 'redcarpet'
 gem 'erubis'
 gem 'rack-attack'
-gem "ruby_ci", github: "RubyCI/ruby_ci_gem", branch: "bugfix/188183739-increase-ruby-support"
+gem "ruby_ci"
 
 group :development, :test do
   gem 'rspec-rails', '6.1.2'
