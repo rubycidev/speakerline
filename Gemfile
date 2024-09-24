@@ -14,7 +14,7 @@ gem 'rails_admin'
 gem 'redcarpet'
 gem 'erubis'
 gem 'rack-attack'
-gem 'ruby_ci'
+gem "ruby_ci"
 
 group :development, :test do
   gem 'rspec-rails', '6.1.2'
