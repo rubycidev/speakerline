@@ -1,22 +1,23 @@
-if ENV["RUBY_CI_SECRET_KEY"]
+if ENV["FAST_CI_SECRET_KEY"]
+  require "fast_ci"
   require "rspec/core/runner"
-  require "ruby_ci/runner_prepend"
+  require "fast_ci/runner_prepend"
 
   class RSpec::Core::ExampleGroup
     def self.filtered_examples
-      rubyci_scoped_ids = Thread.current[:rubyci_scoped_ids] || ""
+      ids = Thread.current[:rubyci_scoped_ids] || ""
 
       RSpec.world.filtered_examples[self].filter do |ex|
-        rubyci_scoped_ids == "" || /^#{rubyci_scoped_ids}($|:)/.match?(ex.metadata[:scoped_id])
+        ids == "" || /^#{ids}($|:)/.match?(ex.metadata[:scoped_id])
       end
     end
   end
 
-  RSpec::Core::Runner.prepend(RubyCI::RunnerPrepend)
+  RSpec::Core::Runner.prepend(FastCI::RunnerPrepend)
 end
 
-require 'simplecov'
-require "ruby_ci/simple_cov"
+require "simplecov" 
+require "fast_ci/simple_cov"
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
