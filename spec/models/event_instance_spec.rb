@@ -13,7 +13,7 @@ RSpec.describe EventInstance do
   # Manually test validation of event field.
   it 'should fail test', disable_parent_event_setter: true do
     instance = EventInstance.new(event_id: nil, year: '2017')
-    expect(instance).to be_valid
+    expect(instance).not_to be_valid
   end
 
   it 'should validate presence of event_id', disable_parent_event_setter: true do
